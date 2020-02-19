@@ -33,6 +33,5 @@ public class Main {
         }
 
         System.out.println(sb);
-        System.out.println(sb);
     }
 }
