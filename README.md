@@ -49,6 +49,7 @@ sb.append(String.format("%.3f", 100.0 * cntOverAng / scoreCnt));
 1차원 배열
 
 * ✨ 꼭 기억해둬야 할 것 ✨
+
 입력이 이어져있다고 자꾸 String으로 본 후 형변환을 할 생각을 버리고, 일단 숫자로 입력되면 int 로 하는 습관을 들이자.
 
 * 📖 느낀점 📖
