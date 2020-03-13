@@ -21,7 +21,37 @@
 
 소수점은 double
 
-* 꼭 기억해둬야 할 것 ✨✨
+* ✨꼭 기억해둬야 할 것 ✨
 
 소수점은 double 진짜 단순한 건데 다시 기본부터 공부하자,,,,^^,,,
+***
+> 4434번
+* 왜 못풀었나?
+
+연산의 순서가 잘못되었다.
+
+[내가 짠 코드]
+<pre>
+<code>
+double result = (float) cntOverAng / (float) scoreCnt * 100.0;
+sb.append(String.format("%.3f", result));
+</code>
+</pre>
+[정답]           
+<pre>
+<code>
+sb.append(String.format("%.3f", 100.0 * cntOverAng / scoreCnt));
+</code>
+</pre>
+
+* 접근법
+
+1차원 배열
+
+* ✨ 꼭 기억해둬야 할 것 ✨
+입력이 이어져있다고 자꾸 String으로 본 후 형변환을 할 생각을 버리고, 일단 숫자로 입력되면 int 로 하는 습관을 들이자.
+
+* 📖 느낀점 📖
+
+위에 적힌 습관을 버리기 위해선 문제를 더 많이 풀어봐야겠다.
 
