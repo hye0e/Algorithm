@@ -11,27 +11,27 @@ import java.io.InputStreamReader;
 
  계산한 결과 17037300 에는 0이 3번, 1이 1번, 3이 2번, 7이 2번 쓰였다.
  */
-public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int num1 = Integer.parseInt(br.readLine());
-        int num2 = Integer.parseInt(br.readLine());
-        int num3 = Integer.parseInt(br.readLine());
-
-        int[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-        int result = num1 * num2 * num3;
-        for (int i = 0; i < arr.length; i++) {
-            int cnt = 0;
-            int temp = result;
-
-            while (temp != 0) {
-                if (temp % 10 == arr[i]) {
-                    cnt++;
-                }
-                temp /= 10;
-            }
-            System.out.println(cnt);
-        }
-    }
-}
+//public class Main {
+//    public static void main(String[] args) throws IOException {
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        int num1 = Integer.parseInt(br.readLine());
+//        int num2 = Integer.parseInt(br.readLine());
+//        int num3 = Integer.parseInt(br.readLine());
+//
+//        int[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+//
+//        int result = num1 * num2 * num3;
+//        for (int i = 0; i < arr.length; i++) {
+//            int cnt = 0;
+//            int temp = result;
+//
+//            while (temp != 0) {
+//                if (temp % 10 == arr[i]) {
+//                    cnt++;
+//                }
+//                temp /= 10;
+//            }
+//            System.out.println(cnt);
+//        }
+//    }
+//}
