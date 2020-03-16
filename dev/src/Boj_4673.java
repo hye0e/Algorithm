@@ -23,69 +23,27 @@ public class Boj_4673 {
     // 1. 생성자 구하기
     // 2. 생성자가 아니면 출력
     public static void main(String[] args) {
-//        int outputArr[] = new int[100001];
-//        int input = 1;
-//        while (true) {
-//            if (input <= 10000) {
-//                for (int i = 0; i < outputArr.length; i++) {
-//                    input++;
-//                    if (!isSelfNum(input)) {
-//                        outputArr[i] = input;
-//                        continue;
-//                    } else {
-//                        continue;
-//                    }
-//                }
-//            } else {
-//                break;
-//            }
-//         }
-        System.out.println(isSelfNum(259));
-//        for (int i = 0; i < outputArr.length; i++) {
-//            System.out.println(outputArr[i]);
-//        }
-    }
-
-    public static boolean isSelfNum(int num) {
-        boolean result;
-        int sum = 0;
-
-        int first = getFirstLetters(String.valueOf(num).length());
-        while (true) {
-            int temp = num;
-
-            if (temp != 0) {
-                int select;
-
-                select = temp / first;
-                temp -= (temp / first) * first;
-                first = first != 0 ? first/10 : 0;
-                System.out.println(select);
-                System.out.println(temp);
-
-                continue;
-            } else {
-                break;
+        boolean isSelfNumArr[] = new boolean[10001];
+        for (int i = 1; i <= 10000; i++) {
+            int sum = getSum(i);
+            if (sum <= 10000) {
+                isSelfNumArr[sum] = true;
             }
-
         }
-//        System.out.println(first);
-//        System.out.println(num);
-//        System.out.println((num / first));
-//        System.out.println((num % first));
-//        sum = num + (num / first) + (num % first);
-//        System.out.println("sum >> " + sum);
-        result = num == sum ? true : false;
 
-        return result;
+        for (int i = 1; i < isSelfNumArr.length; i++) {
+            if (!isSelfNumArr[i]) {
+                System.out.println(i);
+            }
+        }
     }
 
-    public static int getFirstLetters(int length) {
-        String string = "1";
-        for (int i = 0; i < length-1; i++) {
-            string += "0";
+    public static int getSum(int num) {
+        int temp = num;
+        while (num > 0) {
+            temp += num % 10;
+            num /= 10;
         }
-
-        return Integer.parseInt(string);
+        return temp;
     }
 }
