@@ -13,22 +13,26 @@ public class Boj_1065 {
     public static void main(String[]args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int x = Integer.parseInt(br.readLine());
-        int result = 0;
-        for (int i = 1; i <= x; i++) {
-            if (getCnt(i)) {
-                result++;
+
+        if (x < 100) {
+            System.out.println(x);
+        } else {
+            int result = 99;
+            for (int i = 100; i <= x; i++) {
+                if (isHansu(i)) {
+                    result++;
+                }
             }
+            System.out.println(result);
         }
 
-        System.out.println(result);
     }
 
-    public static boolean getCnt(int x) {
+    public static boolean isHansu(int x) {
         int i = 0;
         boolean flag = false;
-        int length = String.valueOf(x).length() == 1 ? 2 : String.valueOf(x).length();
-        x = String.valueOf(x).length() == 1 ? x * 10 : x;
-        int[] arr = new int[length];
+
+        int[] arr = new int[String.valueOf(x).length()];
         while (x > 0) {
             arr[i] = x % 10;
             x /= 10;
@@ -43,9 +47,6 @@ public class Boj_1065 {
         }
 
         for (int j = 0; j < compareArr.length; j++) {
-            if (compareArr.length == 1) {
-                flag = true;
-            }
             if (j != compareArr.length -1) {
                flag =  compareArr[j] == compareArr[j+1] ? true : false;
             }

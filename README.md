@@ -79,3 +79,13 @@ sb.append(String.format("%.3f", 100.0 * cntOverAng / scoreCnt));
       }
 </code>
 </pre> 
+
+***
+> 1065번
+
+* 접근법
+
+1. 100 이하는 무조건 등차 수열인 것을 인지
+2. 100 이상만 한수인지 확인 한다.
+
+
