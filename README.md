@@ -75,7 +75,7 @@ sb.append(String.format("%.3f", 100.0 * cntOverAng / scoreCnt));
     int temp = num; // 원래 숫자를 임시 변수에 넣기
       while (num > 0) { 
           temp += num % 10; // 각 자리 숫자를 구하기 위해, 일의 자리 숫자 구하기
-          num /= 10; // 그 다음자리 숫자를 구하기 위해 원래 숫자를 나누
+          num /= 10; // 그 다음자리 숫자를 구하기 위해 원래 숫자를 나누기
       }
 </code>
 </pre> 
