@@ -52,10 +52,6 @@ sb.append(String.format("%.3f", 100.0 * cntOverAng / scoreCnt));
 
 입력이 이어져있다고 자꾸 String으로 본 후 형변환을 할 생각을 버리고, 일단 숫자로 입력되면 int 로 하는 습관을 들이자.
 
-* 📖 느낀점 📖
-
-위에 적힌 습관을 버리기 위해선 문제를 더 많이 풀어봐야겠다.
-
 ***
 > 4673번
 
@@ -88,4 +84,58 @@ sb.append(String.format("%.3f", 100.0 * cntOverAng / scoreCnt));
 1. 100 이하는 무조건 등차 수열인 것을 인지
 2. 100 이상만 한수인지 확인 한다.
 
+***
+> 10809
+
+* 접근법
+
+1. indexOf() 함수를 이용한다 
+   * indexOf(문자): 해당 문자가 존재하면, 해당 위치를 반환하고, 존재하지 않으면 -1 을 반환한다.
+
+[내가 짠 코드]
+<pre>
+<code>
+        String[] inputArr = input.split("");
+        int[] intInputArr = new int[inputArr.length];
+        int[] outputArr = new int[26];
+
+        for (int i = 0; i < outputArr.length; i++) {
+            outputArr[i] = -1;
+        }
+
+        for (int i = 0; i < intInputArr.length; i++) {
+            intInputArr[i] = inputArr[i].charAt(0) - 97;
+        }
+
+
+        for (int i = 0; i <= 24; i++) {
+            boolean firstFlag = false;
+            for (int j = 0; j < intInputArr.length; j++) {
+                if (intInputArr[j] == i && firstFlag == false) {
+                    outputArr[i] = j;
+                    firstFlag = true;
+                }
+            }
+        }
+
+        for (int j = 0; j < outputArr.length; j++) {
+          if (j != outputArr.length) {
+              System.out.print(outputArr[j] + " ");
+          } else {
+            System.out.print(outputArr[j]);
+          }
+        }
+</code>
+</pre>
+
+[정답]
+<pre>
+<code>
+      String input = br.readLine();
+
+        for (char c = 'a'; c <= 'z'; c++) {
+            System.out.print(input.indexOf(c) + " ");
+        }
+</code>
+</pre>
 
