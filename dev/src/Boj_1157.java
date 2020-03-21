@@ -1,34 +1,26 @@
-import javafx.beans.binding.StringBinding;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Boj_1157 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        String input = br.readLine();
-        String[] arr = input.split("");
-        int[] cntArr = new int[input.length()];
-        // 초기
-        for (int i = 0; i < cntArr.length; i++) {
-            cntArr[i] = 0;
-        }
-        int max = 0;
-        for (char j = 'a'; j < 'z'; j++) {
-            int cnt = 0;
-            for (int i = 0; i < arr.length; i++) {
-                if (arr[i].equalsIgnoreCase(String.valueOf(j))) {
-                    cnt++;
-                    cntArr[i] = cnt;
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            String str = sc.nextLine().toUpperCase();
+
+            int[] cnt = new int[26];
+            int max = 0;
+            char result = '?';
+
+            for (int i = 0; i < str.length(); i++) {
+                cnt[str.charAt(i) - 65]++;
+                if (max < cnt[str.charAt(i) - 65]) {
+                    max = cnt[str.charAt(i) - 65];
+                    result = str.charAt(i);
+                } else if (max == cnt[str.charAt(i) - 65]) {
+                    result = '?';
                 }
             }
+            System.out.println(result);
+
+            sc.close();
         }
 
-        for (int i = 0; i < cntArr.length; i++) {
-            max = max < cntArr[i] ? cntArr[i] : max;
-        }
-
-    }
 }
