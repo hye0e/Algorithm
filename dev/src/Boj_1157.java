@@ -22,5 +22,4 @@ public class Boj_1157 {
 
             sc.close();
         }
-
 }
