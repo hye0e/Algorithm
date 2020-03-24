@@ -14,10 +14,11 @@ import java.io.InputStreamReader;
  * ž	z=
  */
 public class Boj_2941 {
+    // ljes= njak
     public static void main(String[] args) throws IOException {
         String[] alpArr = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] input = br.readLine().split("");
+        String[] input = br.readLine().split("=");
 
         int cnt = 0;
         int charNum = 0;
