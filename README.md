@@ -144,7 +144,7 @@ sb.append(String.format("%.3f", 100.0 * cntOverAng / scoreCnt));
 * 접근법
 
  1. 크로아티아 알파벳 배열을 만든다.
- 2. 배열의 contains 를 이용하여 포함 되어있다면 * 로 치환
+ 2. String의 contains 를 이용하여 포함 되어있다면 * 로 치환
  3. * 를 포함한 길이를 리턴
  
 * ✨ 꼭 기억해둬야 할 것 ✨
