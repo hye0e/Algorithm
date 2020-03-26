@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -8,24 +11,34 @@ import java.util.Scanner;
  * 단어 N개를 입력으로 받아 그룹 단어의 개수를 출력하는 프로그램을 작성하시오.
  */
 public class Boj_1316 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int wordCnt = sc.nextInt();
-        char[] check = new char[26];
-
-        for (int i = 0; i < wordCnt; i++) {
-            String string = sc.next().trim();
-            String[] wordArr = string.split("");
-            for (int j = 0; j < wordArr.length; j++) {
-                if (j != wordArr.length - 1) {
-                    if (wordArr[j+1].equals(wordArr[j])) {
-                        check[j] = wordArr[j].charAt(0);
-                    }
-                }
-
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        int result = 0;
+        int cnt = Integer.parseInt(bufferedReader.readLine());
+        for (int i = 0; i < cnt; i++) {
+            String input = bufferedReader.readLine();
+            if (checkGroup(input)) {
+                result++;
             }
         }
+        System.out.println(result);
     }
 
+    public static boolean checkGroup(String input) {
+        boolean[] checkArr = new boolean[26];
+        int length = input.length();
+        for (int i = 0; i < length; i++) {
+            char temp = input.charAt(i);
+            if (checkArr[temp - 'a']) {
+                return false;
+            } else {
+                // i < length-1
+                if(temp != input.charAt(i+1)) {
+                    checkArr[temp-'a'] = true;
+                }
+            }
+        }
 
+        return true;
+    }
 }
