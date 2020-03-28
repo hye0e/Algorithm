@@ -20,22 +20,21 @@ public class Boj_2839 {
         // 5kg: 최
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int input = Integer.parseInt(br.readLine());
-        int temp;
-        temp = input % 5;
-        if (input == temp) {
-            System.out.println(-1);
-        }
-        else if (temp == 0) {
-            System.out.println(input / 5);
-        } else {
-            if (input % 3 == 0 && input % 5 != 3) {
-                System.out.println(input / 3);
-            } else {
-                int case2 = 0;
-                case2 = input / 5;
-                case2 += case2 / 3;
-                System.out.println(case2);
+        int box = 0;
+        while (true) {
+            if (input % 5 == 0) {
+                box += input / 5;
+                break;
+            }
+
+            input -= 3;
+            box += 1;
+
+            if (input < 0) {
+                box = -1;
+                break;
             }
         }
+        System.out.println(box);
     }
 }
