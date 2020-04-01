@@ -1,23 +1,17 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Boj_2869 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int v = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        long A = Long.parseLong(st.nextToken());
+        long B = Long.parseLong(st.nextToken());
+        long V = Long.parseLong(st.nextToken());
 
-        int cnt = 0;
-        int sum = 0;
-
-        while (sum != v) {
-            sum += a;
-            if (sum != v) {
-                sum -= b;
-            }
-            cnt++;
-        }
-
-        System.out.println(cnt);
+        long dayCnt = 1 + ((V - A)%(A - B) == 0 ? (V - A)/(A - B) : (V - A)/(A - B) + 1);
+        System.out.println(dayCnt);
     }
 }
