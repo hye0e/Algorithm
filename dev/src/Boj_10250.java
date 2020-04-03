@@ -11,7 +11,7 @@ public class Boj_10250 {
             int N = sc.nextInt();
             int floor = (N % H) * 100;
             if (floor == 0) {
-                sb.append(H * 100 + N +  "\n");
+                sb.append(H * 100 + (N / H) +  "\n");
             } else {
                 int num = (N / H) + 1;
                 int roomNum = floor + num;
