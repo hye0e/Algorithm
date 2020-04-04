@@ -9,17 +9,17 @@ public class Boj_10250 {
             int H = sc.nextInt();
             int W = sc.nextInt();
             int N = sc.nextInt();
-            int floor = (N % H) * 100;
+            int num;
+            int floor = (N % H);
             if (floor == 0) {
-                sb.append(H * 100 + (N / H) +  "\n");
+                floor = H;
+                num = (N / H);
             } else {
-                int num = (N / H) + 1;
-                int roomNum = floor + num;
-
-                sb.append(roomNum + "\n");
+                num = (N / H) + 1;
             }
-        }
+            sb.append(floor * 100 + num + "\n");
 
+        }
         System.out.println(sb);
     }
 }
