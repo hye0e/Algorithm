@@ -1,21 +1,28 @@
+package dev;
+
 import java.util.Scanner;
 
 public class Boj_1978 {
-    /**
-     * 주어진 수 N개 중에서 소수가 몇 개인지 찾아서 출력하는 프로그램을 작성하시오.
-     * @param args
-     */
+    public static final int MAX = 1001;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int testCase = sc.nextInt();
-        int cnt = 0;
-        for (int i = 0; i < testCase; i++) {
-           int num = sc.nextInt();
-           if (num <= 2 && num != 1) {
-               cnt++;
-           } else {
+        boolean[] isPrime = new boolean[MAX];
+        for(int i = 2; i < MAX; i++) {
+            isPrime[i] = true;
+        }
 
-           }
+        for(int i = 2; i < MAX; i++) {
+            for(int j = 2 * i; j < MAX; j += i) {
+                if(!isPrime[j]) continue;
+                isPrime[j] = false;
+            }
+        }
+        int n = sc.nextInt();
+        int cnt = 0;
+        for(int i = 0; i < n; i++) {
+            int x = sc.nextInt();
+            if(isPrime[x])
+                ++cnt;
         }
         System.out.println(cnt);
     }
