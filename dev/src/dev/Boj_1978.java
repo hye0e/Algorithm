@@ -22,7 +22,7 @@ public class Boj_1978 {
         for(int i = 0; i < n; i++) {
             int x = sc.nextInt();
             if(isPrime[x])
-                ++cnt;
+                cnt++;
         }
         System.out.println(cnt);
     }
