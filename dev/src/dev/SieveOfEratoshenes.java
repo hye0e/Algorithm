@@ -7,7 +7,7 @@ public class SieveOfEratoshenes {
     public static final int MAX = 25;
 
     public static void main(String[] args) {
-        ArrayList<Integer> primeList = new ArrayList<Integer>();
+        ArrayList<Integer> primeList = new ArrayList<>();
         boolean isPrime[] = new boolean[MAX + 1];
         for(int i = 2; i <= MAX; i++) {
             isPrime[i] = true;
