@@ -8,14 +8,14 @@ public class SieveOfEratoshenes {
 
     public static void main(String[] args) {
         ArrayList<Integer> primeList = new ArrayList<>();
-        boolean isPrime[] = new boolean[MAX];
-        for(int i = 2; i < MAX; i++) {
+        boolean isPrime[] = new boolean[MAX + 1];
+        for(int i = 2; i <= MAX; i++) {
             isPrime[i] = true;
         }
-        for(int i = 2; i < MAX; i++) {
+        for(int i = 2; i <= MAX; i++) {
             if(!isPrime[i]) continue;
             else primeList.add(i);
-            for(int j = i*2; j < MAX; j += i) {
+            for(int j = i*2; j <= MAX; j += i) {
                 isPrime[j] = false;
             }
         }
