@@ -5,15 +5,8 @@ import java.util.Scanner;
 
 public class test {
     public static void main (String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int c = sc.nextInt();
-        int result = (a + b) / c;
-        if (b - c > 0) {
-            System.out.println(result * c);
-        } else {
-            System.out.println(-1);
+        for (int i = 5; i >= 0; --i) {
+            System.out.println(i);
         }
     }
 }
