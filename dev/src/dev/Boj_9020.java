@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Boj_9020 {
     public static void main(String[] args) throws IOException {
@@ -13,8 +14,10 @@ public class Boj_9020 {
         StringBuilder sb = new StringBuilder();
         int testCnt = Integer.parseInt(br.readLine());
         for (int i = 0; i < testCnt; i++) {
+            int min = 1000;
             int input = Integer.parseInt(br.readLine());
             List<Integer> primeList = getPrimeList(input);
+            List<Integer> minList = new ArrayList<>();
             int temp = input;
             for (int j = primeList.size() - 1; j >= 0; j--) {
                 temp -= primeList.get(j);
@@ -22,8 +25,18 @@ public class Boj_9020 {
                     result.add(temp);
                     result.add(primeList.get(j));
                 }
+                min = min < Math.abs(temp - primeList.get(j)) ? min : Math.abs(temp - primeList.get(j));
+                if (min ==  Math.abs(temp - primeList.get(j))) {
+                    result.clear();
+                    result.add(temp);
+                    result.add(primeList.get(j));
+                }
                 temp = input;
             }
+        }
+        for (int num : result) {
+            System.out.println(num);
+
         }
     }
     public static List<Integer> getPrimeList(int max) {
