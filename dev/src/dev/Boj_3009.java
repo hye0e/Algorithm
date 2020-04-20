@@ -12,16 +12,28 @@ public class Boj_3009 {
             yArr[i] = sc.nextInt();
         }
         StringBuilder sb = new StringBuilder();
-        if (xArr[1] == xArr[2]) {
-            sb.append(xArr[0] + " ");
+        if (xArr[0] == xArr[1]) {
+            sb.append(xArr[2] + " ");
         } else {
-            sb.append(xArr[1] + " ");
+            if (xArr[1] == xArr[2]) {
+                sb.append(xArr[0] + " ");
+            } else {
+                sb.append(xArr[1] + " ");
+            }
         }
-
-        if (yArr[1] == yArr[2]) {
-            sb.append(yArr[0]);
+        // 0  1  2  3
+        // 10 10 30 30
+        // 10 30 30 10
+        // 10 30 10 30
+        // 30 30 10 10
+        if (yArr[0] == yArr[1]) {
+            sb.append(yArr[2]);
         } else {
-            sb.append(yArr[1]);
+            if (yArr[1] == yArr[2]) {
+                sb.append(yArr[0]);
+            } else {
+                sb.append(yArr[1]);
+            }
         }
         System.out.println(sb);
     }
