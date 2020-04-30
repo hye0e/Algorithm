@@ -18,15 +18,16 @@ public class Boj_2798 {
         int sum = 0;
         int[] card = new int[100];
         int index = 0;
-        for (int i = 0; i < input.length; i++) {
-            sum = input[i];
-            for (int j = i + 1; j < input.length - 1; j++) {
-                sum += input[j] + input[j + 1];
+        for (int i = 0; i < input.length - 1; i++) {
+            sum = input[i] + input[i + 1];
+            for (int j = 0; j < input.length; j++) {
+                if (input[j] == input[i] || input[j] == input[i + 1]) continue;
+                sum += input[j];
                 if (M >= sum) {
                     card[index] = sum;
                     index++;
                 }
-                sum = input[i];
+                sum = input[i] + input[i + 1];
             }
         }
 
