@@ -18,19 +18,20 @@ public class Boj_2798 {
         int sum = 0;
         int[] card = new int[100];
         int index = 0;
-        for (int i = 0; i < input.length - 1; i++) {
-            sum = input[i] + input[i + 1];
-            for (int j = 0; j < input.length; j++) {
-                if (input[j] == input[i] || input[j] == input[i + 1]) continue;
-                sum += input[j];
-                if (M >= sum) {
-                    card[index] = sum;
-                    index++;
+        int temp = 0;
+
+        for(int i=0;i<input.length;i++) {
+            for(int j=i+1;j<input.length;j++) {
+                for(int k=j+1;k<input.length;k++) {
+                    sum =input[i]+input[j]+input[k];
+                    if(temp<sum&&sum<=M) {
+                        temp=sum;
+                    }
                 }
-                sum = input[i] + input[i + 1];
             }
         }
 
+        System.out.println(temp);
         for (int i = 0; i < index; i++) {
             System.out.println(card[i]);
         }
