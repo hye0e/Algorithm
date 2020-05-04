@@ -16,15 +16,13 @@ public class Boj_2798 {
 
     public static void sort(int[] input, int M) {
         int sum = 0;
-        int[] card = new int[100];
-        int index = 0;
         int temp = 0;
 
         for(int i=0;i<input.length;i++) {
             for(int j=i+1;j<input.length;j++) {
                 for(int k=j+1;k<input.length;k++) {
                     sum =input[i]+input[j]+input[k];
-                    if(temp<sum&&sum<=M) {
+                    if(temp < sum && sum <= M) {
                         temp=sum;
                     }
                 }
@@ -32,8 +30,5 @@ public class Boj_2798 {
         }
 
         System.out.println(temp);
-        for (int i = 0; i < index; i++) {
-            System.out.println(card[i]);
-        }
     }
 }
