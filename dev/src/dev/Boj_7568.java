@@ -1,30 +1,28 @@
 package dev;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Boj_7568 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        int testCase = sc.nextInt();
-        int[] xArr = new int[testCase];
-        int[] yArr = new int[testCase];
-        for (int i = 0; i < testCase; i++) {
+        int testCnt = sc.nextInt();
+        int[] xArr = new int[testCnt];
+        int[] yArr = new int[testCnt];
+        int[] ans = new int[testCnt];
+        for (int i = 0; i < testCnt; i++) {
             xArr[i] = sc.nextInt();
             yArr[i] = sc.nextInt();
         }
 
-        int[] xSortArr = new int[testCase];
-        int[] ySortArr = new int[testCase];
-        for (int i = 0; i < testCase; i++) {
-            for (int j = i + 1; j < testCase; j++) {
-                if (xArr[i] < xArr[j]) {
-                    xSortArr[i] = xArr[i];
-                }
+        for (int i = 0; i < testCnt; i++) {
+            for (int j = 0; j < testCnt; j++) {
+                if (i == j) continue;
+                if (xArr[i] < xArr[j] && yArr[i] < yArr[j]) ans[i]++;
             }
+        }
+
+        for (int rank : ans) {
+            System.out.print((rank+1) + " ");
         }
     }
 }
