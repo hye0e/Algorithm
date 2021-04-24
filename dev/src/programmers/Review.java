@@ -18,6 +18,13 @@ public class Review {
         return answer;
     }
 
+    public static void main(String[] args) {
+        int result1 = (-32768 + 32767) + 1;
+        int result2 = -32768 + (32767 + 1);
+        System.out.println(result1);
+        System.out.println(result2);
+    }
+
     @Test
     public void 정답(){
         Assert.assertEquals(4, solution(new int[][]{{0,0,0,0,0},{0,0,1,0,3},{0,2,5,0,1},{4,2,4,4,2},{3,5,1,3,1}}, new int[]{1,5,3,5,1,2,1,4}));
