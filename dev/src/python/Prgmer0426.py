@@ -1,11 +1,11 @@
 def solution(board, moves):
     answer = 0
     bucket = []
-    for j in moves:
+    for move in moves:
         for i in board:
-            if i[j - 1] != 0:
-                bucket.append(i[j - 1])
-                i[j - 1] = 0
+            if i[move - 1] != 0:
+                bucket.append(i[move - 1])
+                i[move - 1] = 0
                 if len(bucket) > 1:
                     if bucket[-1] == bucket[-2]:
                         answer += 2
