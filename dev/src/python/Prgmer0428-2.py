@@ -3,19 +3,18 @@ def solution(answers):
     st2 = [2, 1, 2, 3, 2, 4, 2, 5]
     st3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
     answer = []
-    cnt1 = 0
-    cnt2 = 0
-    cnt3 = 0
+    cnt = [0, 0, 0]
     for i in range(len(answers)):
-       if answers[i] == st1[len(answers)%len(st1)]:
-           print(st1[len(answers)%len(st1)])
-           cnt1+=1 
-       if answers[i] == st2[len(answers)%len(st2)]:
-           cnt2+=1 
-       if answers[i] == st3[len(answers)%len(st3)]:
-           cnt3+=1 
+       if answers[i] == st1[i%len(st1)]: cnt[0] += 1
+       if answers[i] == st2[i%len(st2)]: cnt[1] += 1
+       if answers[i] == st3[i%len(st3)]: cnt[2] += 1
+    
+    for i in range(len(cnt)):
+        if max(cnt) == cnt[i]:
+            answer.append(i+1)
+
     return answer   
 
 if __name__ == '__main__':
-    print(solution([1,2,3,4,5]))
+    print(solution([1,3,2,4,2]))
     
