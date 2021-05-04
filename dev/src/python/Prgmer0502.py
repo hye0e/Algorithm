@@ -4,9 +4,6 @@ def solution(nums):
     for i in nums:
         if poketmon.count(i) == 0:
             poketmon.append(i)
-
-    print(poketmon)
-    print(poketmon[:count])
     return len(poketmon[:count])
 
 if __name__ == '__main__':
