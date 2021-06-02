@@ -17,6 +17,7 @@ def binary(search, key):
 
 n = int(input())
 n_list = list(map(int, sys.stdin.readline().rstrip().split()))
+n_list.sort()
 
 m = int(input())
 m_list = list(map(int, sys.stdin.readline().rstrip().split()))
