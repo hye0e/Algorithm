@@ -18,11 +18,11 @@ m_list = list(map(int, input().split()))
 
 low = 0
 high = len(n_list) - 1
-
+n_list = sorted(n_list)
 for i in m_list:
-    result = binary_search(low, high, sorted(n_list), i)
+    result = binary_search(low, high, n_list, i)
     if result != None:
         print(1)
     else:
-        print()
+        print(0)
     
