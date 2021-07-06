@@ -10,5 +10,5 @@ def printTotal(total):
     print('total : ' + str(total))
     print('print complete')
 
-result = sum(100)
+result = sum(3)
 print(result)

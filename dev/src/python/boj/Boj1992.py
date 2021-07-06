@@ -1,23 +1,4 @@
 #-*- coding:utf-8 -*-
-# 예제 입력
-# 16   : 첫줄은 쿼드 트리의 크기를 의미함
-# 0000000000000011
-# 0000000000000011
-# 0000000000001111
-# 0000000000001111
-# 0000111100000000
-# 0000111100000000
-# 0000111100000000
-# 0000111100000000
-# 0011000011111111
-# 1111000011111111
-# 0000000011111111
-# 0000000011111111
-# 0000111111111111
-# 0000111111111111
-# 0000111111111111
-# 0000111111111111
-
 BLACK = 1
 WHITE = 0
 
@@ -27,16 +8,17 @@ def decompress(x, y, size):
     for i in range(x, x+size):            
         for j in range(y, y+size):
             if matrix[j][i] != color: 
-                answer += 'x'
+                answer += '('
                 decompress(x, y, size//2) 
                 decompress(x + size//2, y, size//2) 
                 decompress(x, y + size//2, size//2) 
                 decompress(x + size//2, y + size//2, size//2) 
+                answer += ')'
                 return
     if matrix[y][x] == BLACK: #검정색이라면
-        answer += 'b'
+        answer += '1'
     else:
-        answer += 'w' #흰색이라면
+        answer += '0' #흰색이라면
 
 
 N = int(input())
