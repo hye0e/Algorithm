@@ -1,21 +1,19 @@
 import sys
-cnt = int(sys.stdin.readline())
 
-money = 0
-t_list = []
-p_list = []
-for i in range(cnt):
-   t, p = sys.stdin.readline().split()
-   t_list.append(int(t))
-   p_list.append(int(p))
+n = int(sys.stdin.readline())
+t = []
+p = []
+dp = []
 
-money = p_list[0]
-day = t_list[0]
+for i in range(n):
+    a, b = map(int, sys.stdin.readline().split())
+    t.append(a)
+    p.append(b)
+    dp.append(b)
 
-while day < cnt:
-    if day + t_list[day] > cnt:
-        break
-    money += p_list[day]
-    day += t_list[day]
-
-print(money)
+for i in range(n):
+    if t[i] + 1 > n:
+        dp[i] = dp[i] + p[t[i]]
+    else:
+        dp[i] = max(dp[i], p[i] + dp[i + t[i]])
+print(max(dp))
