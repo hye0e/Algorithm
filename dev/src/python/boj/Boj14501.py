@@ -10,10 +10,12 @@ for i in range(n):
     t.append(a)
     p.append(b)
     dp.append(b)
+dp.append(0)
 
-for i in range(n):
-    if t[i] + 1 > n:
-        dp[i] = dp[i] + p[t[i]]
+for i in range(n-1, -1, -1):
+    if t[i] + i > n: 
+        dp[i] = dp[i + 1]
     else:
-        dp[i] = max(dp[i], p[i] + dp[i + t[i]])
+        dp[i] = max(dp[i + 1], p[i] + dp[i + t[i]])
 print(max(dp))
+print(dp[0])
