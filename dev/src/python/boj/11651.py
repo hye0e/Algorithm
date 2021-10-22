@@ -10,4 +10,3 @@ num_list.sort(key = lambda x: (int(x[1]),int(x[0])))
 
 for i in num_list:
     print(i[0], i[1])
-print(num_list)
