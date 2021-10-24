@@ -5,16 +5,10 @@ input = sys.stdin.readline
 N = int(input())
 arr = list(map(int, input().split()))
 
-dict = {}
-sort_arr = sorted(arr)
-index = 0
-for i in sort_arr:
-    dict[i] = index
-    index += 1
+set_arr = sorted(list(set(arr)))
+dict = {set_arr[i] : i for i in range(len(set_arr))}
+
+print(dict)
 
 for i in arr:
-    for key, value in enumerate(dict):
-        if i == value:
-            print(key, end = '')
-print(arr)
-print(sort_arr)
+    print(dict[i], end = ' ')
