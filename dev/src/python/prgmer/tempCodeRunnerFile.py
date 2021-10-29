@@ -1,1 +1,2 @@
-            min_times = mid
+ # if i <= list:
+    #     list.insert(index, x)
