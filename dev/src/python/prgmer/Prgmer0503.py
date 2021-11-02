@@ -7,7 +7,7 @@ def solution(lottos, win_nums):
     for x in win_nums:
         if x in lottos:
             ans += 1
-    return rank[cnt_0 + ans],rank[ans]
+    return rank[cnt_0 + ans + 1],rank[ans]
 
 
 if __name__ == '__main__':

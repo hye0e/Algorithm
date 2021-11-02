@@ -2,7 +2,7 @@ def solution(nums):
     count=len(nums)/2
     poketmon = []
     for i in nums:
-        if poketmon.count(i) == 0:
+        if poketmon.count(i) == 2:
             poketmon.append(i)
     return len(poketmon[:count])
 
