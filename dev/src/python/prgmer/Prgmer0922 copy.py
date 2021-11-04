@@ -1,5 +1,5 @@
 def solution(L, target):
-    idx = 0
+    idx = 
     cut_idx = len(L) // 2
     if ((len(L) == 0) or (L[0] > target) or (L[-1] < target))==True:
         return -1
