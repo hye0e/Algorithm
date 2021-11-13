@@ -18,14 +18,15 @@ t = ["B", "C", "C", "D", "E", "A", "E"]
 l = []
 # for index, value in enumerate(f):
 
-for i in range(0, len(f)):
-    for j in range(0, len(f)-1):
-        if f[j] != f[j+1]:
-            graph.append(l)
-            l = []
-            break
-        else:
-            l.append(t[j])
+n, m, v = map(int, read().split())
+
+graph = [[0] * (n + 1) for _ in range(n + 1)] 
+visit_list = [0] * (n + 1)
+visit_list2 = [0] * (n + 1)
+
+for _ in range(m):
+  a, b = map(int, read().split())
+  graph[a][b] = graph[b][a] = 1
 
 # print(graph)
 
