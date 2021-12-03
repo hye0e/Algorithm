@@ -21,25 +21,14 @@ def merge(arr, l, m, r):
     n1 = m - l + 1
     n2 = r - m
  
-    # create temp arrays
     L = []
     R = []
  
-    # Copy data to temp arrays L[] and R[]
     for i in range(0, n1):
         L.extend(arr[l + i])
  
     for j in range(0, n2):
         R.extend(arr[m + 1 + j])
-    
-    # result = []
-    # L_cursor = 0
-    # R_cursor = 0
-    # L.sort()
-    # R.sort()
-    
-    # result = L + R
-    # result.sort()
     
     print(arr)
 def mergeSort(arr, left, mid, right):
