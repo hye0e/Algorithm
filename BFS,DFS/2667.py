@@ -16,7 +16,7 @@ result = []
 def dfs(x, y):
     dx, dy = [0, 0, 1, -1], [1, -1, 0, 0]
 
-    if 0 > x or 0 > y or x >= N or y >= N:
+    if 0 > x or x >= N or 0 > y or y >= N:
         return False
 
     if graph[x][y] == 1:
@@ -29,7 +29,7 @@ def dfs(x, y):
             nx = dx[i] + x
             ny = dy[i] + y
             dfs(nx, ny)
-            return True
+        return True
     return False
 
 result = 0
@@ -42,5 +42,8 @@ for i in range(N):
             result_list.append(result)
             total += 1
             result = 0
+
 print(total)
-print(result_list)
+result_list.sort()
+for r in result_list:
+    print(r)
