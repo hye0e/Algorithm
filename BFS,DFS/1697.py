@@ -23,7 +23,7 @@ def bfs():
             break
 
         for nx in (n - 1, n + 1, n * 2):   
-            if 0 <= nx < MAX and not visited[nx]:
+            if 0 <= nx <= MAX and not visited[nx]:
                 visited[nx] = visited[n] + 1
                 queue.append(nx)
 
