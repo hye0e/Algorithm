@@ -7,8 +7,9 @@ from collections import deque
 input = sys.stdin.readline
 
 N, K = map(int, input().strip().split())
-
-visited = [0] * 1000000  # 최대 
+MAX = 10 ** 5
+visited = [0] * (MAX + 1)  # index 이므로 +1
+print(MAX)
 
 def bfs():
     queue = deque()
@@ -22,8 +23,8 @@ def bfs():
             break
 
         for nx in (n - 1, n + 1, n * 2):   
-            if 0 <= nx < 100000 and not visited[nx]:
+            if 0 <= nx < MAX and not visited[nx]:
                 visited[nx] = visited[n] + 1
                 queue.append(nx)
-  
+
 bfs()
