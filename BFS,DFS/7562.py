@@ -23,31 +23,27 @@ def bfs(x, y):
     queue.append([x, y])
     
     while queue:
-        global cnt
         x, y = queue.popleft()
+
+        if x == end_x and y == end_y:
+            print(graph[x][y])
+            return
+
         for i in range(8):
             nx = x + dx[i]
             ny = y + dy[i]
 
-            if 0 > nx or nx <= i or 0 > ny or ny <= i:
+            if 0 > nx or nx >= N or 0 > ny or ny >= N:
                 continue
 
-            if graph[x][y] == 0: # 체스판 0: 안가본 곳 1: 가본 곳 2: 도착 지
-                graph[x][y] = 1
-                cnt += 1
+            if graph[nx][ny] == 0:
+                graph[nx][ny] = graph[x][y] + 1
                 queue.append([nx, ny])
 
-            if graph[x][y] == 2:
-                print(cnt)
-                break
-
 for i in range(T):
-    i = int(input().strip()) # 체스판
-    graph = [[0] * i for _ in range(i)] 
-    now_x, now_y = map(int, input().strip())
-    end_x, end_y = map(int, input().strip())
-    cnt = 0
+    N = int(input().strip()) # 체스판
+    graph = [[0] * N for _ in range(N)] 
+    now_x, now_y = map(int, input().strip().split())
+    end_x, end_y = map(int, input().strip().split())
 
-    graph[end_x][end_y] = 2
-    graph[now_x][now_x] = 1
     bfs(now_x, now_y)
