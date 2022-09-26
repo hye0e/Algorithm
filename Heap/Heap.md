@@ -14,7 +14,8 @@
 - 힙 함수 활용하기
     - heapq.heappush(heap, item): item을 heap에 추가
     - heapq.heappop(heap): heap에서 **가장 작은 원소**를 pop하고 리턴
-    주의! 값이 비어있는 경우 IndexError 가 호출된다.
+    <br>
+    **주의! 값이 비어있는 경우 IndexError 가 호출된다.**
     - heapq.heapify(x): 리스트 x를 즉각적으로 heap으로 변환함
 - 힙 생성
     
