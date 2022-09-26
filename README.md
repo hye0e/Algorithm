@@ -5,6 +5,6 @@
 등을 풀며 알고리즘을 공부 중입니다 🫠
 
 # 🧷 정리
-- [해쉬](./contents/README.md)
+- [해쉬](https://github.com/hye0e/Algorithm/blob/master/Hash/Hash.md)
 - [스택/큐](https://github.com/hye0e/Algorithm/blob/master/Stack,Queue/Stack&Queue.md)
 - [힙](https://github.com/hye0e/Algorithm/blob/master/Heap/Heap.md)
