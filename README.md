@@ -6,5 +6,5 @@
 
 # 🧷 정리
 - [해쉬](./contents/README.md)
-- [스택/큐](./contents/README.md)
+- [스택/큐](https://github.com/hye0e/Algorithm/blob/master/Stack,Queue/Stack&Queue.md)
 - [힙](https://github.com/hye0e/Algorithm/blob/master/Heap/Heap.md)
