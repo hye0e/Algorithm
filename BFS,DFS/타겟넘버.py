@@ -12,11 +12,11 @@ def solution(numbers, target):
         if idx < stop:
             queue.append([temp + numbers[idx], idx])
             queue.append([temp - numbers[idx], idx])
-        else:
-            if temp == target:
-                answer += 1
+        elif temp == target:
+            answer += 1
 
     return answer
 
 if __name__ == '__main__':
-    print(solution([1, 1, 1, 1], 3))
+    # print(solution([1, 1, 1, 1], 3))
+    print(solution([4, 1, 2, 1], 4))
