@@ -1,13 +1,14 @@
-def mostCommonWord(paragraph, banned):
-        # 소문자
+class Solution:
+    def mostCommonWord(paragraph, banned) -> str:
+                # 소문자
         paragraph = paragraph.lower()
         # !?',;.
-        paragraph = paragraph.replace('!', '')
-        paragraph = paragraph.replace('?', '')
-        paragraph = paragraph.replace("'", '')
-        paragraph = paragraph.replace(',', '')
-        paragraph = paragraph.replace(';', '')
-        paragraph = paragraph.replace('.', '')
+        paragraph = paragraph.replace('!', ' ')
+        paragraph = paragraph.replace('?', ' ')
+        paragraph = paragraph.replace("'", ' ')
+        paragraph = paragraph.replace(',', ' ')
+        paragraph = paragraph.replace(';', ' ')
+        paragraph = paragraph.replace('.', ' ')
 
         str_list = paragraph.split()
         
@@ -29,4 +30,12 @@ def mostCommonWord(paragraph, banned):
 
         return answer
 
-mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.", ["hit"])
+    def mostCommonWord(paragraph, banned) -> str:
+        word = [word for word in re.sub(r'[^\w]', ' ', paragraph)
+                            .lower().split() 
+                                    if word not in banned]
+
+        counts = collections.Counter(words)
+        # most_common(1): 가장 흔하게 등장하는 단어의 첫번째 값을 추출
+        # [('ball', 2)]
+        return counts.most_common(1)[0][0] 
