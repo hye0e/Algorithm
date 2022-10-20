@@ -9,9 +9,7 @@ def solution(brown, yellow):
         if total % i == 0:
             length = i
             width = int(total / length)
-            if width >= length and ((2 * width) + (2 * length)) - 4 == brown and (width - 2) + (length - 2) == yellow:
-                print(length)
-                print(width)
+            
+            if width >= length and ((2 * width) + (2 * length)) - 4 == brown and (width - 2) * (length - 2) == yellow:
                 return [width, length]
-    
     return answer

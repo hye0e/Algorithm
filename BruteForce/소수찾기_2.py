@@ -1,4 +1,3 @@
-from hashlib import new
 from itertools import permutations
 
 def checkPrime(num):
@@ -18,7 +17,6 @@ def solution(numbers):
             num = int(''.join(j))
             if num not in new_num: new_num.append(num)
 
-    print(new_num)
     for num in new_num:
         if checkPrime(num):
             answer += 1
