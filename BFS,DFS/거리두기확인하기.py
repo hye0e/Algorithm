@@ -35,7 +35,9 @@ def solution(places):
                             return False
 
                     elif place[nx][ny] == 'O':
-                        if nd == 1:
+                        if nd <= 2:
+                            return False
+                        else:
                             queue.append([nx, ny, nd])
         return True
 
