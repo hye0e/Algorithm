@@ -111,8 +111,8 @@ while True:
         board[x][y] = 1
         queue.append([x, y])
 
-        px, py = queue.popleft()
         # 뱀 꼬리 가져오기
+        px, py = queue.popleft()
         board[px][py] = 0
     else:
         break
