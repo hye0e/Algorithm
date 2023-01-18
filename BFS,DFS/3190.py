@@ -31,21 +31,8 @@ x, y = 0, 0
 board[x][y] = 1
 time = 0
 direction = 0
-dx, dy = [0, 1, 0, -1], [1, 0, -1, 0]
 
 now = 'Right'
-def print_board(board):
-    for i in board:
-        print(*i)
-
-# def turn(alpha):
-#     global direction
-#     # 왼쪽
-#     if direction == 'L':
-#         direction = (direction - 1) % 4
-#     # 오른쪽
-#     else:
-#         direction = (direction + 1) % 4
 
 def go(dir):
     global time
