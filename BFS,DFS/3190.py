@@ -76,7 +76,7 @@ def go(dir):
                 now = 'Up'
         elif dir == 'Up':
             if changeDir[time] == 'L':
-                nx, ny = x + 1, y
+                nx, ny = x, y - 1 # 수정
                 now = 'Left'
             elif changeDir[time] == 'D':
                 nx, ny = x, y + 1
@@ -97,9 +97,6 @@ while True:
     x, y = go(now)
     time += 1
 
-    print('time: ', time, 'direction: ', now)
-    print(print_board(board))
-
     if x < 0 or x >= N or y < 0 or y >= N:
         break
 
@@ -108,8 +105,6 @@ while True:
         # 사과 먹음처리
         board[x][y] = 1
         queue.append([x, y])
-        # if time in changeDir:
-        #     turn(changeDir[time])
     # 전진
     elif board[x][y] == 0:
         # 뱀 이동
@@ -119,7 +114,6 @@ while True:
         px, py = queue.popleft()
         # 뱀 꼬리 가져오기
         board[px][py] = 0
-
     else:
         break
 
