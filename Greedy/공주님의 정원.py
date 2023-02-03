@@ -61,7 +61,7 @@ while True:
 
         # 조건1) 하루라도 공백기가 생기면 안되니, 현재 심을 꽃이 now_end 보다 작아야함 ex) 현재 심을 꽃 502 <= 503 now_end
         # 조건2) 더 오래 심을 수 있어야지 최소의 꽃을 심을 수 있음
-        # 조건3)
+        # 조건3, 4) 기존에 있던 temp 보다 더 많이 갈 수 있는 곳이 최선임
         if cal_format[i][0] <= now_end \
                 and cal_format[i][1] >= now_end\
                 and cal_format[i][0] >= temp_start\
