@@ -1,5 +1,9 @@
-import sys, heapq
-
+import sys
+#4
+# 1 1 7 8
+# 7 8 9 10
+# 7 8 10 10
+# 10 10 12 10
 input = sys.stdin.readline
 
 N = int(input())
@@ -41,44 +45,43 @@ for i in range(1, N):
         now_end = max(now_end, cal_format[i][1])
         start_index = i
 
-# print(cal_format)
+print(cal_format)
 temp_start = now_start
 temp_end = now_end
 
 count = 0
 
 while True:
-    # 비교군 없음
-    flag = False
-
-    if start_index == N - 1:
+    if start_index >= N - 1:
         break
 
     for i in range(start_index + 1, N):
         if temp_end == 1201:
             break
 
-        if cal_format[i][0] <= now_end and cal_format[i][1] >= now_end:
+        # 조건1) 하루라도 공백기가 생기면 안되니, 현재 심을 꽃이 now_end 보다 작아야함 ex) 현재 심을 꽃 502 <= 503 now_end
+        # 조건2) 더 오래 심을 수 있어야지 최소의 꽃을 심을 수 있음
+        # 조건3)
+        if cal_format[i][0] <= now_end \
+                and cal_format[i][1] >= now_end\
+                and cal_format[i][0] >= temp_start\
+                and cal_format[i][1] >= temp_end:
+        # if cal_format[i][0] <= now_end and cal_format[i][1] > now_end:
             temp_start = cal_format[i][0]
             temp_end = cal_format[i][1]
             start_index = i
-        else:
-            flag = True
-            # start_index = i
-            # break
 
     if now_start != temp_start and now_end != temp_end:
         # 최종적으로 심음
         plant += 1
         now_start = temp_start
         now_end = temp_end
+    else:
+        start_index += 1
 
     # 더 볼 필요없음
     if now_end == 1201:
         break
-
-    if flag:
-        start_index += 1
 
 if cal_format[0][0] == 301 and now_end == 1201:
     print(plant)
