@@ -15,7 +15,7 @@ for _ in range(N):
 
 cal.sort(key=lambda x: x[0])
 
-# 3/1일 이전은 301로 변경 12/1일 이후는 1201로 변경
+# 1. 3/1일 이전은 301로 변경 12/1일 이후는 1201로 변경
 cal_format = []
 for i in range(N):
     table = []
@@ -36,7 +36,7 @@ start_index = 0
 
 plant = 1
 
-# 가장 멀리가기
+# 2. 처음 시작을 가장 오래 지지 않는 꽃으로 선택하여 now_end로 초기화한다
 for i in range(1, N):
     if cal_format[i][0] != 301:
         break
@@ -45,20 +45,17 @@ for i in range(1, N):
         now_end = max(now_end, cal_format[i][1])
         start_index = i
 
-print(cal_format)
 temp_start = now_start
 temp_end = now_end
 
 count = 0
 
+# 4.  현재 심은 꽃보다 가장 오래 지지않는 꽃을 찾아 temp_start, temp_end를 찾는다
 while True:
     if start_index >= N - 1:
         break
 
     for i in range(start_index + 1, N):
-        if temp_end == 1201:
-            break
-
         # 조건1) 하루라도 공백기가 생기면 안되니, 현재 심을 꽃이 now_end 보다 작아야함 ex) 현재 심을 꽃 502 <= 503 now_end
         # 조건2) 더 오래 심을 수 있어야지 최소의 꽃을 심을 수 있음
         # 조건3, 4) 기존에 있던 temp 보다 더 많이 갈 수 있는 곳이 최선임
@@ -66,7 +63,6 @@ while True:
                 and cal_format[i][1] >= now_end\
                 and cal_format[i][0] >= temp_start\
                 and cal_format[i][1] >= temp_end:
-        # if cal_format[i][0] <= now_end and cal_format[i][1] > now_end:
             temp_start = cal_format[i][0]
             temp_end = cal_format[i][1]
             start_index = i
