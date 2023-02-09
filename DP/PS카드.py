@@ -3,24 +3,17 @@ import sys
 input = sys.stdin.readline
 
 N = int(input().strip())
-card_cost = list(map(int, input().strip().split()))
+card_cost = [0] + list(map(int, input().strip().split()))
 dp = [0 for i in range(N + 1)]
 
 dp[1] = card_cost[0]
 
-if N == 2:
-    dp[2] = max(dp[1] + card_cost[1], card_cost[1])
+for i in range(1, N + 1):
+    for j in range(1, i + 1):
+        dp[i] = max(dp[i - j] + card_cost[j], dp[i])
 
-dp[2] = max(dp[1] + card_cost[0], card_cost[1])
-dp[3] = max(dp[2] + card_cost[1], card_cost[2])
-for i in range(3, len(dp)):
-    # print(i)
-    # for j in range(i + 1):
-        # dp[i] = max(dp[i] + card_cost[j - 1], dp[i - 1])
-        # print(j)
+print(dp)
 
-    dp[i] = max(card_cost[i - 1], dp[i - 1] + dp[i - 2] - dp[i - 3])
-print(dp[N])
 # import sys
 # from itertools import product
 #
