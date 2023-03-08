@@ -16,7 +16,7 @@ def get_prime_num(N):
         i += 1
 
     for i in range(2, N + 1):
-        if not visited[i]:
+        if not visited[i] and i % 2 != 0:
             prime_num.append(i)
 
     return prime_num
