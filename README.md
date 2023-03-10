@@ -1,8 +1,5 @@
 # 👩🏻‍💻 Algorithm
-- 백준
-- 프로그래머스
-
-등을 풀며 알고리즘을 공부 중입니다 🫠
+자바로 열심히 바꾸는 중 . . . . 🐢. . . 🐢 
 
 # 🧷 정리
 - [해쉬](https://github.com/hye0e/Algorithm/blob/master/Hash/Hash.md)
