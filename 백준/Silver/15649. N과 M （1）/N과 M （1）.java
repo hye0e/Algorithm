@@ -1,49 +1,43 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class Main {
-	
-	static int N, M;
-	static boolean[] isSelected;
- 	static int[] num;
-	static StringBuilder sb = new StringBuilder();
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		
-		N = Integer.parseInt(st.nextToken());
-		M = Integer.parseInt(st.nextToken());
-		
-		isSelected = new boolean[N + 1];
-		num = new int[M];
-		
-		dfs(0);
-		System.out.println(sb);
-	}
-	
-	public static void dfs(int cnt) {
-		if (cnt == M) {
-			for (int i: num) {
-				sb.append(i).append(" ");
-			}
-			sb.append("\n");
-			return;
-		}
-		
-		
-		for (int i = 1; i <= N; i++) {
-			if (isSelected[i]) continue;
-			
-			num[cnt] = i;
-			isSelected[i] = true;
-			dfs(cnt+1);
-			isSelected[i] = false;
-		} 
-	}
+    static int N, M;
+    static int[] selected;
+    static boolean[] visited;
+    static StringBuilder sb = new StringBuilder();
 
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        N = Integer.parseInt(st.nextToken()); // 1, 2, 3, 4
+        M = Integer.parseInt(st.nextToken()); // 2
+
+        selected = new int[M];
+        visited = new boolean[N + 1];
+        dfs(0);
+        System.out.println(sb);
+    }
+
+    public static void dfs(int depth) {
+        if (depth == M) {
+            for (int i = 0; i < M; i++) {
+                sb.append(selected[i]).append(" ");
+            }
+            sb.append("\n");
+        } else {
+            for (int i = 1; i <= N; i++) {
+                if (visited[i]) continue;
+                selected[depth] = i;
+                visited[i] = true;
+                dfs(depth + 1);
+                visited[i] = false;
+                selected[depth] = 0;
+            }
+        }
+
+    }
 }
