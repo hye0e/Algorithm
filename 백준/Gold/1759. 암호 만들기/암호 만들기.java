@@ -63,8 +63,12 @@ public class Main {
         } else {
             // 순서O 중복X
             for (int i = start; i < C; i++) {
+                if (visited[i]) continue;
+
                 selected[depth] = i;
+                visited[i] = true;
                 dfs(i + 1, depth + 1);
+                visited[i] = false;
                 selected[depth] = 0;
             }
         }
