@@ -1,6 +1,6 @@
 # [unrated] 롤케이크 자르기 - 132265 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/132265#qna) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/132265) 
 
 ### 성능 요약
 
