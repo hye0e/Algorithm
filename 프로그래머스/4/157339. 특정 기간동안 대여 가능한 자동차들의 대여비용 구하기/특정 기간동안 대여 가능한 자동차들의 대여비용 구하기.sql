@@ -1,0 +1,29 @@
+-- 코드를 입력하세요
+SELECT * FROM 
+        (SELECT B.CAR_ID AS CAR_ID, B.CAR_TYPE AS CAR_TYPE, 
+                ROUND(B.DAILY_FEE*30*(100-B.DISCOUNT_RATE)/100) AS FEE -- 지불 비용
+         FROM 
+            (SELECT A.CAR_ID, A.CAR_TYPE, A.DAILY_FEE, P.DISCOUNT_RATE 
+             FROM (SELECT C.* FROM 
+            CAR_RENTAL_COMPANY_CAR C
+            JOIN CAR_RENTAL_COMPANY_RENTAL_HISTORY H
+            ON C.CAR_ID = H.CAR_ID
+            WHERE C.CAR_ID NOT IN ( 
+            SELECT CAR_ID
+            FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
+            WHERE END_DATE >= '2022-11-01' AND START_DATE <= '2022-12-01')) A
+            # WHERE (C.CAR_TYPE IN ('세단', 'SUV'))
+            # AND DATE(H.END_DATE) < '2022-11-01'
+            # OR DATE(H.START_DATE) >= '2022-12-01') A
+            JOIN CAR_RENTAL_COMPANY_DISCOUNT_PLAN P
+            ON A.CAR_TYPE = P.CAR_TYPE
+            WHERE P.DURATION_TYPE = '30일 이상') B
+        ) C
+GROUP BY CAR_ID
+HAVING C.FEE >= 500000 AND C.FEE < 2000000
+ORDER BY FEE DESC, CAR_TYPE ASC, CAR_ID DESC;
+
+# AND DATE(H.START_DATE) >= '2022-11-30';
+#  AND '2022-11-30'
+# 할인율이 적용되는 대여 기간
+# 1. 7일이상 30일 미만 2. 30일 이상 90일 미만 3. 90일이상
