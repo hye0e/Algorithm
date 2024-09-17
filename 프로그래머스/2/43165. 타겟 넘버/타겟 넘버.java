@@ -1,26 +1,21 @@
 class Solution {
     static int TARGET;
-    static boolean[] visited;
-    static int[] selected;
     static int answer = 0;
-    
-    public void dfs(int sum, int depth, int[] numbers) {
+    static boolean[] visited;
+    public void dfs(int[] numbers, int sum, int depth) {
         if (depth == numbers.length) {
-            if (sum == TARGET) {
-                answer++;
-            
-            }
+            if (sum == TARGET) answer++;
             return;
         }
-       
         
-        dfs(sum + numbers[depth], depth + 1, numbers); 
-        dfs(sum - numbers[depth], depth + 1, numbers); 
+        dfs(numbers, sum - numbers[depth], depth + 1);
+        dfs(numbers, sum + numbers[depth], depth + 1);
+        
     }
-    
     public int solution(int[] numbers, int target) {
+        
         TARGET = target;
-        dfs(0, 0, numbers);
+        dfs(numbers, 0, 0);
         return answer;
     }
 }
