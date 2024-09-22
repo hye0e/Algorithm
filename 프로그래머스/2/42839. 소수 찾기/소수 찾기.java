@@ -1,45 +1,46 @@
 import java.util.*;
 
 class Solution {
+    static int N;
+    static String[] numArr;
+    static int answer = 0;
     static Set<Integer> set = new HashSet<>();
     static boolean[] visited;
-    static int N;
     
-    public void dfs(String temp, int depth, String numbers) {
-        if (N == depth) {
-            set.add(Integer.parseInt(temp));
+    public void dfs(int depth, String num) {
+        if (depth == N) {
+            set.add(Integer.parseInt(num));
             return;
         }
         
-        for (int i = 0; i < numbers.length(); i++) {
+        for (int i = 0; i < numArr.length; i++) {
             if (visited[i]) continue;
             visited[i] = true;
-            if (!temp.equals("")) set.add(Integer.parseInt(temp));
-            dfs(temp + numbers.charAt(i), depth + 1, numbers);
+            if (!num.equals("")) set.add(Integer.parseInt(num));
+            dfs(depth + 1, num + numArr[i]);
             visited[i] = false;
         }
     }
     
-    public boolean isPrime(int x) {
-        if (x < 2) return false;
+    public boolean isPrime(int num) {        
+        if (num < 2) return false;
         
-        for (int i = 2; i <= Math.sqrt(x); i++) {
-            if (x % i == 0) return false; 
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
         }
         
         return true;
     }
-    
     public int solution(String numbers) {
-        int answer = 0;
-        visited = new boolean[numbers.length()];
         N = numbers.length();
-        dfs("", 0, numbers);
+        numArr = numbers.split("");
+        visited = new boolean[N];
+        dfs(0, "");
         
-        for (Integer num : set) {
-            if (isPrime(num)) answer++;
+        for (int num : set) {
+            if(isPrime(num)) answer++;
+            System.out.println(num);
         }
-        
         return answer;
     }
 }
