@@ -16,7 +16,7 @@ public class Main {
         for (int i = 0; i < N; i++) {
             for (int j = i + 1; j < N; j++) {
                 for (int z = j + 1; z < N; z++) {
-                    if (cows[i] < cows[j] && cows[j] < cows[z]) {
+                    if (cows[i] <= cows[j] && cows[j] <= cows[z]) {
                         cnt++;
                     }
                 }
