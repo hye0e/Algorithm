@@ -20,7 +20,7 @@ public class Main {
         // System.out.println(Arrays.toString(num));
 
         int answer = Integer.MIN_VALUE;
-        for (int i = 0; i < K- N; i++) {
+        for (int i = 0; i <= K- N; i++) {
             int temp = 0;
             for (int j = i; j < i + N; j++) {
                 temp += num[j];
