@@ -17,7 +17,7 @@ public class Main {
             num[i] = Integer.parseInt(st.nextToken());
         }
 
-        System.out.println(Arrays.toString(num));
+        // System.out.println(Arrays.toString(num));
 
         int answer = Integer.MIN_VALUE;
         for (int i = 0; i <= N; i++) {
