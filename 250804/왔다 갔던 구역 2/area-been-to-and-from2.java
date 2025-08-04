@@ -21,7 +21,7 @@ public class Main {
                 }
                 now += go;
             } else {
-                for (int j = now; j > now - go; j--) {
+                for (int j = now - 1; j >= now - go; j--) {
                     // System.out.println("L -> " + j);
                     count[j]++;
                     // last = j;
