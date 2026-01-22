@@ -2,21 +2,16 @@ import java.util.*;
 
 class Solution {
     public String solution(String s) {
-        StringTokenizer st = new StringTokenizer(s);
-        int N = st.countTokens();
-        int[] arr = new int[N];
-        
-        for (int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+        String answer = "";
+        StringBuilder sb = new StringBuilder();
+        String[] arr = s.split(" ");
+        int[] numArr = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            numArr[i] = Integer.parseInt(arr[i]);
         }
-        
-        int minNum = Integer.MAX_VALUE;
-        int maxNum = Integer.MIN_VALUE;
-        for (int i = 0; i < N; i++) {
-            minNum = Math.min(minNum, arr[i]);
-            maxNum = Math.max(maxNum, arr[i]);
-        }
-        
-        return minNum + " " + maxNum;
+        Arrays.sort(numArr);
+        sb.append(numArr[0] + " " + numArr[arr.length - 1]);
+        System.out.println(Arrays.toString(numArr));
+        return sb.toString();
     }
 }
