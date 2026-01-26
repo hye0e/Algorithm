@@ -2,26 +2,21 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] people, int limit) {
-        int answer = 0;
-        // 50 50 70 80
-        
         Arrays.sort(people);
         
-        for (int i = 0; i < people.length; i++) {
-            for (int j = i + 1; j < people.length; j++) {
-                if (people[i] == 0) continue;
-                if (people[i] + people[j] <= limit) {
-                    people[i] = 0;
-                    people[j] = 0;
-                    answer++;
-                    System.out.println("?");
-                }
+        int left = 0;
+        int right = people.length - 1;
+        int answer = 0;
+
+        while (left <= right) {
+            answer++; // 보트 1대는 무조건 사용 (right는 항상 탑승)
+
+            if (people[left] + people[right] <= limit) {
+                left++; // 가벼운 사람도 같이 태울 수 있으면 태움
             }
+            right--; // 무거운 사람은 항상 처리
         }
         
-        for (int i = 0; i < people.length; i++) {
-            if (people[i] != 0) answer++;
-        }
         return answer;
     }
 }
